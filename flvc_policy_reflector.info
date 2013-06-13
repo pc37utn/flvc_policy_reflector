@@ -1,0 +1,6 @@
+name = FLVC Policy Reflector
+description = "Affects display of GUI elements in a similar way of a global XACML policy."
+package = Islandora
+version = 7.x-dev
+core = 7.x
+dependencies[] = islandora

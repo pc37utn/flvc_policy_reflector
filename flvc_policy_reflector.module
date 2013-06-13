@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Hook implementation(s) for FLVC's policy reflector.
+ */
+
+/**
+ * Implements hook_islandora_object_access().
+ *
+ * Allow management to objects submitters own.
+ */
+function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
+  $management_operations = array(
+    FEDORA_MANAGE_PROPERTIES,
+    FEDORA_METADATA_EDIT,
+    FEDORA_ADD_DS,
+    FEDORA_PURGE,
+    FEDORA_INGEST,
+  );
+
+  if (in_array($op, $management_operations) && in_array('submitter', $user->roles)) {
+    return $user->name == $object->owner;
+  }
+
+  return NULL;
+}
