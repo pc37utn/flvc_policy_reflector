@@ -19,7 +19,15 @@ function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
     FEDORA_INGEST,
   );
 
-  if (in_array($op, $management_operations) && in_array('submitter', $user->roles)) {
+  $has_submitter_role = FALSE;
+  foreach ($user->roles as $role) {
+    if (preg_match('/.*submitter$/', $role)) {
+      $has_submitter_role = TRUE;
+      break;
+    }
+  }
+
+  if ($has_submitter_role && in_array($op, $management_operations)) {
     return $user->name == $object->owner;
   }
 
