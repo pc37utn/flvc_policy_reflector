@@ -16,7 +16,6 @@ function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
     FEDORA_METADATA_EDIT,
     FEDORA_ADD_DS,
     FEDORA_PURGE,
-    FEDORA_INGEST,
   );
 
   $has_submitter_role = FALSE;
