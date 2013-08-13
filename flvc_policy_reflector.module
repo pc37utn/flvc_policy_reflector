@@ -12,10 +12,10 @@
  */
 function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
   $management_operations = array(
-    FEDORA_MANAGE_PROPERTIES,
-    FEDORA_METADATA_EDIT,
-    FEDORA_ADD_DS,
-    FEDORA_PURGE,
+    ISLANDORA_MANAGE_PROPERTIES,
+    ISLANDORA_METADATA_EDIT,
+    ISLANDORA_ADD_DS,
+    ISLANDORA_PURGE,
   );
 
   $has_submitter_role = FALSE;
