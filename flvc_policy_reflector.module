@@ -15,12 +15,11 @@ function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
     ISLANDORA_MANAGE_PROPERTIES,
     ISLANDORA_METADATA_EDIT,
     ISLANDORA_ADD_DS,
-    ISLANDORA_PURGE,
   );
 
   $has_submitter_role = FALSE;
   foreach ($user->roles as $role) {
-    if (preg_match('/.*submitter$/', $role)) {
+    if ($role == 'authUser-role') {
       $has_submitter_role = TRUE;
       break;
     }
