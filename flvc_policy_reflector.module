@@ -26,7 +26,9 @@ function flvc_policy_reflector_islandora_object_access($op, $object, $user) {
   }
 
   if ($has_submitter_role && in_array($op, $management_operations)) {
-    return $user->name == $object->owner;
+    if ($user->name === $object->owner) {
+      return TRUE;
+    }
   }
 
   return NULL;
